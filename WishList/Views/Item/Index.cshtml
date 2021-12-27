@@ -5,15 +5,19 @@
     Layout = "_Layout";
 
 }
-
+    <nav class="navbar navbar-success mb-3">
+        <a asp-action="Index" asp-controller="Home">Home</a>
+    </nav>
 <h1>Wishlist</h1>
-<a href="#" asp-action="create">Add item</a>
+<a asp-action="create">Add item</a>
 <ul>
-    @{
-        foreach (var i in Model) {
-            <li>@i.Description <a asp-action="delete" asp-route-id="@i.Id">Delete</a></li>
-        }
+    @{  
+        foreach (var item in Model) {
+            <li>@item.Description <a asp-action="delete" asp-route-id="@item.Id">Delete</a></li>
+            
+        };
     }
 
 </ul>
+
 
